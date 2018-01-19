@@ -1,5 +1,7 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -14,6 +16,14 @@ public class Demo1 {
 			// http://www.techpaste.com/2011/07/java-sql-sqlexception-listener-refused-connection-error/
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@172.18.73.194:1521:XE", "system", "oracle");
 			//http://www.studytonight.com/java/connecting-to-oracle.php
+			
+			//To insert a Record
+			PreparedStatement pst=con.prepareStatement("insert into emp values(?,?,?)");
+			
+	// http://www.studytonight.com/java/connecting-to-oracle.php
+			
+			
+			//To fetch records
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from emp");
 
